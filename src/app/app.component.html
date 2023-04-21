@@ -1,0 +1,39 @@
+<br>
+<mat-card class="Card-CadastroUser">
+  <mat-card-title>Cadastro de Cidadões</mat-card-title>
+  <mat-card-content>
+    <mat-form-field appearance="outline">
+      <input matInput [(ngModel)]="pessoaEmCadastro.nome" placeholder="Digite o nome">
+    </mat-form-field>
+    <br>
+    <mat-form-field appearance="outline">
+      <input matInput [(ngModel)]="pessoaEmCadastro.idade" placeholder="Digite o idade">
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <input matInput [(ngModel)]="pessoaEmCadastro.cidade" placeholder="Digite o Cidade">
+    </mat-form-field>
+  </mat-card-content>
+  <mat-card-actions>
+    <button mat-raised-button color="accent" (click)="cadastrar()">Cadastrar</button>
+  </mat-card-actions>
+</mat-card>
+<br>
+<mat-card class="card-usuario" *ngFor="let pessoa of pessoas">
+  <mat-card-header>
+    <mat-card-title>{{pessoa.nome | titlecase}}</mat-card-title>
+    <mat-card-subtitle> Idade: {{pessoa.idade}}</mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-content>
+    O cidadão da cidade de {{pessoa.cidade}} tem {{pessoa.idade}} anos.
+  </mat-card-content>
+  <mat-card-actions>
+    
+    <button mat-button (click)="editarPss(pessoa)">
+      <mat-icon>edit</mat-icon>
+    </button>
+    
+    <button mat-button (click)="excluirPss(pessoa)">
+      <mat-icon>delete</mat-icon>
+    </button>
+  </mat-card-actions>
+</mat-card>
